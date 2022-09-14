@@ -3,12 +3,9 @@
 
 trigger:
 - main
-
-# TODO: Replace the agent pool name
-pool: myAgentPool
-
 - task: AzureWebApp@1
   inputs:
+    azureSubscription: 'myservice207276'
     appType: 'webAppLinux'
     appName: 'mywebapp207276'
     deployToSlotOrASE: true
@@ -17,6 +14,9 @@ pool: myAgentPool
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'PYTHON|3.7'
     startUpCommand: 'Python app.py'
+
+# TODO: Replace the agent pool name
+pool: myAgentPool
 
 steps:
 - script: echo Hello, world!
