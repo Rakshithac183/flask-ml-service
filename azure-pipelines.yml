@@ -35,6 +35,7 @@ stages:
       workingDirectory: $(projectRoot)
 
     - script: |
+        export PATH=$HOME/.local/bin:$PATH
         python -m venv antenv
         source antenv/bin/activate
         make install
